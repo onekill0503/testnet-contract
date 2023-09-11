@@ -2,18 +2,19 @@
 
 ## Project setup
 
+Install [Bun](https://bun.sh/) on your machine
+
 Clone this repository and install the dependencies.
 
-- `nvm use`
-- `yarn install`
-- `yarn build`
+- `bun install`
+- `bun run build`
 
 ## Testing
 
 Runs integration tests using arlocal. Note - these test write temporary files to your local disc.
 
-- `yarn tests` - runs full test suite
-- `yarn test -t 'auctions'` - runs tests that match this spec name (e.g. `auctions.test.ts`)
+- `bun test` - runs full test suite
+- `bun test -t 'auctions'` - runs tests that match this spec name (e.g. `auctions.test.ts`)
 
 ## Tools
 
@@ -37,14 +38,14 @@ The following tools can be used to perform basic ArNS operations such as name pu
 - [buy-arns-name] - purchases a new ArNS Name in the registry (if available) and adds the reference to an existing ANT Smartweave Contract ID
 
   ```shell
-  yarn ts-node tools/buy-arns-name.ts
+  bun tools/buy-arns-name.ts
   ```
 
 - [buy-arns-name-atomic-ant] - "atomically" registers an ArNS name, which includes the generation of a new ANT within the same transaction as the ArNS Name registration.
   pointer and the ANT Smartweave Contract Source Transaction ID. Please note that only the `@` sub domain will work at this time, and it is hard-coded into the script.
 
   ```shell
-  yarn ts-node tools/buy-arns-name-atomic-ant.ts
+  bun tools/buy-arns-name-atomic-ant.ts
   ```
 
 ### AR.IO Testnet Network
@@ -54,43 +55,43 @@ The following tools can be used to perform basic AR.IO Network operations, such 
 - [join-network] - takes a Gateway into the ar.io network and adds the Gateway into the Gateway Address Registry. This detail includes the Gateway Operator’s public wallet address, fully qualified domain name, port, protocol, properties and friendly note.
 
   ```shell
-  yarn ts-node tools/join-network.ts
+  bun tools/join-network.ts
   ```
 
 - [update-gateway-settings] - modify the settings of an existing registered Gateway record in the Gateway Address Registry, like the friendly name, fully qualified domain name, port, protocol, status, properties, and note.
 
   ```shell
-  yarn ts-node tools/update-gateway-settings.ts
+  bun tools/update-gateway-settings.ts
   ```
 
 - [increase-operator-stake] - increase the token amount staked for an existing registered Gateway.
 
   ```shell
-  yarn ts-node tools/increase-operator-stake.ts
+  bun tools/increase-operator-stake.ts
   ```
 
 - [initiate-operator-stake-decrease] - initiate a stake decrease for an existing registered Gateway
 
   ```shell
-  yarn ts-node tools/initiate-operator-stake-decrease.ts
+  bun tools/initiate-operator-stake-decrease.ts
   ```
 
 - [finalize-operator-stake-decrease] - after stake withdraw period, this completes the operator stake decrease and returns the specific amount back to the operator.
 
   ```shell
-  yarn ts-node tools/finalize-operator-stake-decrease.ts
+  bun tools/finalize-operator-stake-decrease.ts
   ```
 
 - [initiate-leave-network] - initiate network withdraw period to remove a registered Gateway from the Gateway Address Registry and return all gateway operator stakes.
 
   ```shell
-  yarn ts-node tools/initiate-leave-network.ts
+  bun tools/initiate-leave-network.ts
   ```
 
 - [finalize-leave-network] - finalize network withdraw period completes, this will finish removing the gateway from the Gateway Address Registry and returns all stakes back to the operator.
 
   ```shell
-  yarn ts-node tools/finalize-leave-network.ts
+  bun tools/finalize-leave-network.ts
   ```
 
 [join-network]: tools/join-network.ts
